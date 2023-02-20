@@ -28,7 +28,7 @@ const News=(props)=>{
     props.setProgress(10);
     let url=`http://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=1&pageSize=${props.pageSize}`;
     setLoading(true);
-    let data=await fetch(url);
+    let data=await fetch(url,{referrerPolicy: "unsafe_url" });
     props.setProgress(30);
     let parsedData=await data.json();
     props.setProgress(70);
@@ -47,7 +47,7 @@ const News=(props)=>{
     const url=`http://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=${page+1}&pageSize=${props.pageSize}`;
     setPage(page+1);
     setLoading(true);
-    let data=await fetch(url);
+    let data=await fetch(url,{referrerPolicy: "unsafe_url" });
     let parsedData=await data.json();
     setArticles(articles.concat(parsedData.articles));
     setTotalResults(parsedData.totalResults);
