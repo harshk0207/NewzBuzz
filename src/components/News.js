@@ -26,7 +26,7 @@ const News=(props)=>{
   }
   const updateNews=async()=>{
     props.setProgress(10);
-    let url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=1&pageSize=${props.pageSize}`;
+    let url=`http://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=1&pageSize=${props.pageSize}`;
     setLoading(true);
     let data=await fetch(url);
     props.setProgress(30);
@@ -44,7 +44,7 @@ const News=(props)=>{
   },[])
   
   const fetchMoreData=async ()=> {
-    const url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=${page+1}&pageSize=${props.pageSize}`;
+    const url=`http://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=${page+1}&pageSize=${props.pageSize}`;
     setPage(page+1);
     setLoading(true);
     let data=await fetch(url);
@@ -68,7 +68,7 @@ const News=(props)=>{
           {articles.map((element)=>{
             return <div className="col-md-4" key={element.url} >
                     <NewsItem title={element.title?element.title:""} description={element.description?element.description:""} 
-                              imageUrl={element.urlToImage?element.urlToImage:"https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found.jpg"} 
+                              imageUrl={element.urlToImage?element.urlToImage:"http://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found.jpg"} 
                               newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}
                     />
                    </div>
