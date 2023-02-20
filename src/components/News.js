@@ -68,7 +68,7 @@ const News=(props)=>{
           {articles.map((element)=>{
             return <div className="col-md-4" key={element.url} >
                     <NewsItem title={element.title?element.title:""} description={element.description?element.description:""} 
-                              imageUrl={element.urlToImage?element.urlToImage:"https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found.jpg"} 
+                              imageUrl={element.urlToImage?element.urlToImage:"https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png"} 
                               newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}
                     />
                    </div>
