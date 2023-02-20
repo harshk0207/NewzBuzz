@@ -26,13 +26,14 @@ const News=(props)=>{
   }
   const updateNews=async()=>{
     props.setProgress(10);
-    let url=`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=1&pageSize=${props.pageSize}`;
+    let url=`http://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&&apiKey=e51f854bc3024cac8202580b86d5bb7f&page=1&pageSize=${props.pageSize}`;
     setLoading(true);
     let data=await fetch(url);
     props.setProgress(30);
     let parsedData=await data.json();
     props.setProgress(70);
     setArticles(parsedData.articles);
+    console.log(articles);
     setTotalResults(parsedData.totalResults);
     setLoading(false);
     props.setProgress(100);
